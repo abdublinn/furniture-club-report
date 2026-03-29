@@ -76,6 +76,38 @@ img { max-width: 100%; height: auto; }
   font-size: 0.85rem;
   margin-top: 1rem;
 }
+.hero-byline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+.hero-author-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(245,158,11,0.4);
+  object-fit: cover;
+}
+.hero-contact {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.8rem;
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.4);
+  color: #f59e0b;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.hero-contact:hover {
+  background: rgba(245,158,11,0.25);
+  color: #fbbf24;
+}
 
 /* ── STICKY NAV ── */
 .sticky-nav {
@@ -339,6 +371,134 @@ details .details-body {
 .applicability-mid { border-left: 4px solid #f59e0b; }
 .applicability-low { border-left: 4px solid #94a3b8; }
 
+/* ── CTA SECTION ── */
+.cta-section {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 4rem 2rem;
+  color: #fff;
+}
+.cta-inner {
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+.cta-left {
+  flex-shrink: 0;
+  text-align: center;
+  width: 160px;
+}
+.cta-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid rgba(245,158,11,0.4);
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+.cta-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+.cta-role {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 0.25rem;
+}
+.cta-right { flex: 1; }
+.cta-quote {
+  border-left: 3px solid #f59e0b;
+  padding-left: 1.2rem;
+  font-style: italic;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.cta-topics-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+.cta-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cta-topic {
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.25);
+  color: #fbbf24;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.cta-box {
+  max-width: 520px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+.cta-box-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+.cta-box-text {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.cta-btn {
+  padding: 0.7rem 1.8rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.cta-btn.primary {
+  background: #f59e0b;
+  color: #0f172a;
+}
+.cta-btn.primary:hover {
+  background: #d97706;
+  color: #0f172a;
+}
+.cta-btn.secondary {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #cbd5e1;
+}
+.cta-btn.secondary:hover {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+.cta-note {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
 /* ── AUTHOR ── */
 .author-section {
   background: #eff6ff;
@@ -384,6 +544,22 @@ details .details-body {
   margin: 0.25rem;
 }
 .author-links a:hover { background: rgba(245,158,11,0.2); }
+.author-competencies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.competency-tag {
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.25);
+  color: #f59e0b;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
 .author-copyright {
   margin-top: 1.2rem;
   color: #94a3b8;
@@ -463,6 +639,10 @@ footer p { margin-bottom: 0.5rem; }
   .card { padding: 1.3rem; }
   .sticky-nav a { padding: 0.7rem 0.75rem; font-size: 0.75rem; }
   .author-card { padding: 1.5rem; }
+  .cta-inner { flex-direction: column; align-items: center; text-align: center; }
+  .cta-left { width: auto; }
+  .cta-quote { border-left: none; border-top: 2px solid #f59e0b; padding-left: 0; padding-top: 1rem; }
+  .cta-topics { justify-content: center; }
 }
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr 1fr; }
@@ -474,10 +654,15 @@ footer p { margin-bottom: 0.5rem; }
 <!-- ====== HERO ====== -->
 <section class="hero" id="top">
   <div class="hero-inner">
+    <div class="hero-byline">
+      <img src="https://abdublinn.github.io/peredel-furniture-report/images/author-hero.png" alt="Александр Дублин" class="hero-author-img">
+      <span>Александр Дублин &middot; Март 2026</span>
+    </div>
     <h1>Клубы клиентов и реферальные программы в мебельной отрасли</h1>
     <p class="subtitle">Что работает, что не работает и что из этого применимо к российской кастомной мебели</p>
-    <span class="meta">Аналитическое исследование &middot; Март 2026</span>
+    <span class="meta">Аналитическое исследование</span>
     <p class="note">Синтез 5 независимых ИИ-исследований: Claude &middot; ChatGPT &middot; Perplexity &middot; Kimi &middot; Gemini</p>
+    <a href="https://t.me/AleksandrBorisovich73" target="_blank" class="hero-contact">Связаться с автором</a>
   </div>
 </section>
 
@@ -1041,12 +1226,50 @@ footer p { margin-bottom: 0.5rem; }
   </div>
 </section>
 
+<!-- ====== CTA ====== -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-left">
+      <img src="https://abdublinn.github.io/peredel-furniture-report/images/author-photo.png" alt="Александр Дублин" class="cta-photo">
+      <div class="cta-name">Александр Дублин</div>
+      <div class="cta-role">Бизнес-аналитик и Маркетинг-стратег</div>
+    </div>
+    <div class="cta-right">
+      <blockquote class="cta-quote">Помогаю бизнесу превращать данные в стратегию: выстраиваю системы управленческого учёта, разрабатываю методологии, формулирую миссию и конкурентное позиционирование. Работаю там, где цифры перестают быть отчётностью и становятся картой решений.</blockquote>
+      <div class="cta-topics-title">С чем обращаются:</div>
+      <div class="cta-topics">
+        <span class="cta-topic">Стратегия продвижения и клиентские клубы</span>
+        <span class="cta-topic">Ценовое позиционирование и анализ конкурентов</span>
+        <span class="cta-topic">Управленческий учёт: от таблиц к системе</span>
+        <span class="cta-topic">Анализ данных и построение дашбордов</span>
+        <span class="cta-topic">Стратегический выбор канала сбыта</span>
+        <span class="cta-topic">Ребрендинг: нужен ли и что изменить</span>
+      </div>
+    </div>
+  </div>
+  <div class="cta-box">
+    <div class="cta-box-title">Обсудить вашу ситуацию</div>
+    <p class="cta-box-text">Если ваша компания стоит перед стратегическим выбором, я разберусь в данных и скажу прямо, а не обтекаемо.</p>
+    <div class="cta-buttons">
+      <a href="https://t.me/AleksandrBorisovich73" target="_blank" class="cta-btn primary">Написать в Telegram</a>
+      <a href="https://t.me/ab_dublin" target="_blank" class="cta-btn secondary">Читать блог</a>
+    </div>
+    <p class="cta-note">Конфиденциальность соблюдается. Без обязательств.</p>
+  </div>
+</section>
+
 <!-- ====== AUTHOR ====== -->
 <section class="author-section" id="author">
   <div class="author-card">
     <img class="author-photo" src="https://abdublinn.github.io/peredel-furniture-report/images/author-photo.png" alt="Александр Дублин">
     <div class="author-name">Александр Дублин</div>
-    <p class="author-bio">Бизнес-аналитик и маркетинг-стратег. Работает на стыке аналитики, маркетинга и теории систем.</p>
+    <p class="author-bio">Бизнес-аналитик и Маркетинг-стратег. Работает на стыке аналитики, маркетинга и теории систем.</p>
+    <div class="author-competencies">
+      <span class="competency-tag">Маркетинг-стратегия</span>
+      <span class="competency-tag">Управленческий учёт</span>
+      <span class="competency-tag">Анализ данных с применением ИИ</span>
+      <span class="competency-tag">Стратегическое позиционирование</span>
+    </div>
     <div class="author-links">
       <a href="https://t.me/AleksandrBorisovich73" target="_blank" rel="noopener">Telegram @AleksandrBorisovich73</a>
       <a href="https://t.me/ab_dublin" target="_blank" rel="noopener">Канал @ab_dublin</a>
