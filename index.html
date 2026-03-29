@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Клубы клиентов и реферальные программы в мебельной отрасли</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #374151;
+  line-height: 1.7;
+  background: #f8fafc;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.3;
+}
+
+a { color: #f59e0b; text-decoration: none; transition: color 0.2s; }
+a:hover { color: #d97706; }
+
+img { max-width: 100%; height: auto; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1e3a5f 100%);
+  color: #fff;
+  padding: 7rem 2rem 5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(245,158,11,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(16,185,129,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
+}
+.hero .subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+.hero .meta {
+  display: inline-block;
+  background: rgba(245,158,11,0.15);
+  border: 1px solid rgba(245,158,11,0.3);
+  color: #f59e0b;
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.hero .note {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* ── STICKY NAV ── */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0f172a;
+  border-bottom: 1px solid rgba(245,158,11,0.15);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.sticky-nav.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.sticky-nav-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.sticky-nav-inner::-webkit-scrollbar { display: none; }
+.sticky-nav a {
+  color: #94a3b8;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 0.9rem 1rem;
+  white-space: nowrap;
+  transition: color 0.2s, border-bottom-color 0.2s;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+}
+.sticky-nav a:hover, .sticky-nav a.active {
+  color: #f59e0b;
+  border-bottom-color: #f59e0b;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 5rem 2rem;
+}
+.section-light { background: #f8fafc; }
+.section-white { background: #ffffff; }
+.section-blue { background: #eff6ff; }
+.section-dark {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #e2e8f0;
+}
+.section-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.section-wide {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-number {
+  display: inline-block;
+  background: rgba(245,158,11,0.12);
+  color: #f59e0b;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+.section h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+.section-dark h2 { color: #fff; }
+.section h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+.section-dark h3 { color: #e2e8f0; }
+.section p {
+  margin-bottom: 1.2rem;
+}
+.section strong { color: #0f172a; }
+.section-dark strong { color: #f59e0b; }
+
+/* ── CARDS ── */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.8rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border-left: 4px solid #f59e0b;
+}
+.card.card-danger {
+  border-left-color: #ef4444;
+}
+.card.card-green {
+  border-left-color: #10b981;
+}
+.card h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+}
+.card p { margin-bottom: 0.6rem; }
+.card p:last-child { margin-bottom: 0; }
+
+/* ── BLOCKQUOTE ── */
+blockquote {
+  border-left: 4px solid #f59e0b;
+  background: rgba(245,158,11,0.06);
+  padding: 1.2rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+  color: #374151;
+}
+blockquote strong { color: #0f172a; }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 4rem 2rem;
+}
+.stats-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+.stat-card {
+  background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05));
+  border: 1px solid rgba(245,158,11,0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f59e0b;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+.stat-label {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* ── TABLES ── */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: #fff;
+}
+thead th {
+  background: #1e293b;
+  color: #f8fafc;
+  font-weight: 600;
+  padding: 0.85rem 1rem;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  white-space: nowrap;
+}
+tbody td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+tbody tr:nth-child(even) { background: #f8fafc; }
+tbody tr:hover { background: #eff6ff; }
+
+/* ── APPENDIX COLLAPSIBLE ── */
+details {
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+details summary {
+  cursor: pointer;
+  padding: 1.2rem 1.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0f172a;
+  background: #eff6ff;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: '\25B6';
+  font-size: 0.7rem;
+  color: #f59e0b;
+  transition: transform 0.2s;
+}
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+details .details-body {
+  padding: 1rem;
+}
+
+/* ── RISK TABLE ── */
+.risk-table td:first-child { font-weight: 600; color: #0f172a; white-space: nowrap; }
+
+/* ── CONSENSUS LIST ── */
+.consensus-list {
+  list-style: none;
+  padding: 0;
+}
+.consensus-list li {
+  padding: 0.8rem 0 0.8rem 2rem;
+  position: relative;
+  border-bottom: 1px solid #e2e8f0;
+}
+.consensus-list li:last-child { border-bottom: none; }
+.consensus-list li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  top: 0.8rem;
+  color: #10b981;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ── APPLICABILITY ── */
+.applicability-high { border-left: 4px solid #10b981; }
+.applicability-mid { border-left: 4px solid #f59e0b; }
+.applicability-low { border-left: 4px solid #94a3b8; }
+
+/* ── AUTHOR ── */
+.author-section {
+  background: #eff6ff;
+  padding: 5rem 2rem;
+}
+.author-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  text-align: center;
+}
+.author-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f59e0b;
+  margin-bottom: 1rem;
+}
+.author-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+.author-bio {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+.author-links a {
+  display: inline-block;
+  background: rgba(245,158,11,0.1);
+  color: #d97706;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin: 0.25rem;
+}
+.author-links a:hover { background: rgba(245,158,11,0.2); }
+.author-copyright {
+  margin-top: 1.2rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #0f172a;
+  color: #64748b;
+  padding: 3rem 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+}
+footer .footer-inner { max-width: 800px; margin: 0 auto; }
+footer p { margin-bottom: 0.5rem; }
+
+/* ── BACK TO TOP ── */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f59e0b;
+  color: #0f172a;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(245,158,11,0.4);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s, background 0.2s;
+  z-index: 99;
+}
+.back-to-top.visible { opacity: 1; transform: translateY(0); }
+.back-to-top:hover { background: #d97706; }
+
+/* ── METHODOLOGY TABLE ── */
+.method-table td:first-child {
+  font-weight: 700;
+  color: #f59e0b;
+  white-space: nowrap;
+}
+
+/* ── RELIABILITY BADGE ── */
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.badge-verified { background: rgba(16,185,129,0.15); color: #10b981; }
+.badge-estimated { background: rgba(245,158,11,0.15); color: #d97706; }
+
+/* ── PRINT ── */
+@media print {
+  .sticky-nav, .back-to-top { display: none !important; }
+  .section { padding: 2rem 0; }
+  .hero { padding: 3rem 1rem; }
+  body { font-size: 11pt; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  .section { padding: 3rem 1.2rem; }
+  .hero { padding: 5rem 1.2rem 3rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .stat-number { font-size: 1.5rem; }
+  .card { padding: 1.3rem; }
+  .sticky-nav a { padding: 0.7rem 0.75rem; font-size: 0.75rem; }
+  .author-card { padding: 1.5rem; }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <h1>Клубы клиентов и реферальные программы в мебельной отрасли</h1>
+    <p class="subtitle">Что работает, что не работает и что из этого применимо к российской кастомной мебели</p>
+    <span class="meta">Аналитическое исследование &middot; Март 2026</span>
+    <p class="note">Синтез 5 независимых ИИ-исследований: Claude &middot; ChatGPT &middot; Perplexity &middot; Kimi &middot; Gemini</p>
+  </div>
+</section>
+
+<!-- ====== STICKY NAV ====== -->
+<nav class="sticky-nav" id="stickyNav">
+  <div class="sticky-nav-inner">
+    <a href="#preface">Предисловие</a>
+    <a href="#section-1">I. Рынок</a>
+    <a href="#section-2">II. Аналоги</a>
+    <a href="#section-3">III. Смежные</a>
+    <a href="#section-4">IV. Провалы</a>
+    <a href="#section-5">V. Наука</a>
+    <a href="#section-6">VI. Бренды</a>
+    <a href="#section-7">VII. Консенсус</a>
+    <a href="#section-8">VIII. Оценка</a>
+    <a href="#appendices">Приложения</a>
+  </div>
+</nav>
+
+<!-- ====== PREFACE ====== -->
+<section class="section section-white" id="preface">
+  <div class="section-inner">
+    <h2>Как читать этот отчёт</h2>
+    <p>Это аналитическое исследование, а не набор инструкций. Здесь собраны данные о том, что делают мебельные и смежные компании по всему миру: что из этого сработало, что провалилось и почему. Каждый кейс сопровождается оценкой переносимости на российскую кастомную мебель.</p>
+    <p>Одно и то же исследовательское задание было отдано пяти ИИ-системам (Claude, ChatGPT, Perplexity, Kimi, Gemini) независимо друг от друга. Там, где все пять сошлись на одном выводе, это отмечено. Не как доказательство истины, а как сигнал устойчивости наблюдения.</p>
+  </div>
+</section>
+
+<!-- ====== SECTION I ====== -->
+<section class="section section-light" id="section-1">
+  <div class="section-inner">
+    <span class="section-number">РАЗДЕЛ I</span>
+    <h2>Ваш рынок: что происходит в российской мебели прямо сейчас</h2>
+    <p>Прежде чем смотреть на мировой опыт, стоит зафиксировать картину того, с чем работает российский мебельный рынок.</p>
+
+    <h3>Кто из российских мебельщиков пытается работать с рекомендациями</h3>
+    <p>Из 14 проанализированных компаний <strong>ни одна</strong> не имеет клуба-сообщества для конечных клиентов. Ни у одной нет амбассадорской программы. Формальная реферальная программа обнаружена только у Франа. У Askona есть механика &laquo;мягкого реферала&raquo; через шеринг бонусов. А вот бонусные карты с кэшбэком 2&ndash;5% используют все 14 из 14. К этому выводу независимо пришли все пять исследований.</p>
+    <p>Все существующие дизайнерские клубы (#MariaDesignPeople, Lazurit Pro, Клуб Комплектаторов, PITERRA) работают строго в B2B: для профессионалов, не для конечных клиентов.</p>
+
+    <h3>Как устроены программы ключевых игроков</h3>
+
+    <div class="card">
+      <h4>Hoff</h4>
+      <p>2&ndash;5% кэшбэк, списание до 50%, срок жизни бонусов 6 месяцев. Выдано более миллиона карт. Реферала нет, сообщества нет. При шестимесячном сроке сгорания и цикле покупки 5+ лет значительная часть бонусов просто не используется.</p>
+    </div>
+
+    <div class="card card-green">
+      <h4>Askona</h4>
+      <p>5% бонусов, квартальные начисления по 1 000 &#8381;, на день рождения 3 000 &#8381;. Уникальная на рынке деталь: клиент может &laquo;подарить&raquo; бонусы другу, даже незарегистрированному. Это единственный найденный мягкий реферал среди всех 14 компаний. Механика шеринга не требует сложной инфраструктуры и легко переносима.</p>
+    </div>
+
+    <div class="card">
+      <h4>Mr.Doors PREMIER</h4>
+      <p>VIP-сервис от 1,5 млн &#8381;: топ-дизайнеры, бессрочная гарантия, приоритет производства, тревел-бонус. Позиционируется как &laquo;закрытый клуб&raquo;, но по сути это консьерж-сервис без механик сообщества. Модель близка к RH Members, но без реферального контура сарафанное радио остаётся случайным. Сервисная база сильная, однако масштабируется только при высоком чеке.</p>
+    </div>
+
+    <div class="card">
+      <h4>Фран</h4>
+      <p>Единственная компания с формальным реферальным механизмом: реферер и приглашённый получают баллы, трекинг через коды. Однако информация о реферале не вынесена на первый экран, не интегрирована в пост-покупочную коммуникацию и, вероятно, известна малой доле участников. Механика рабочая, но кейс Франа показывает: <strong>спрятанный реферал почти равен отсутствующему</strong>.</p>
+    </div>
+
+    <div class="card card-danger">
+      <h4>MZ5-Диваны</h4>
+      <p>До 50% кэшбэк, списание до 90%. Крайне агрессивная модель, фактически уничтожающая маржу. Тот же путь, который привёл J.Crew к банкротству (см. раздел IV). <strong>Антипример</strong>.</p>
+    </div>
+
+    <blockquote><strong>Полная таблица всех 14 компаний</strong> с детальными условиями, сроками, ограничениями приведена в Приложении A.</blockquote>
+
+    <h3>Что известно о российских покупателях мебели</h3>
+    <p>Два факта определяют контекст.</p>
+    <p>По данным Nielsen, <strong>92%</strong> потребителей доверяют рекомендациям друзей и семьи больше любой рекламы. При этом, по данным НАФИ, лишь <strong>23%</strong> покупателей мебели ориентируются на бонусы при выборе магазина, втрое ниже, чем в продуктовом ритейле. Рынок инвестирует в инструмент, который для мебельной категории слаб.</p>
+    <p>Дополнительный контекст: <strong>77%</strong> покупают мебель в знакомом магазине (E-Promo). Доля потребителей, учитывающих бренд при покупке, выросла с 12% до 27% за год (B1/EY, 2024). В сегменте с доходом 150 000+ &#8381;/мес. эта цифра уже <strong>48%</strong>.</p>
+    <p>При этом корпоративные программы лояльности воспринимаются со скептицизмом, как инструмент сбора персональных данных (перекрёстное наблюдение GPT, Perplexity, Gemini). Институт &laquo;своего мастера&raquo;, &laquo;проверенного человека&raquo; в России исторически сильнее, чем доверие к безличному бренду (наблюдение Gemini).</p>
+    <p><strong>Telegram</strong> набрал 96 млн пользователей в месяц в РФ (Mediascope, январь 2026), обошёл WhatsApp. Ни одного мебельного клуба в Telegram не обнаружено ни одним из 5 исследований.</p>
+  </div>
+</section>
+
+<!-- ====== SECTION II ====== -->
+<section class="section section-white" id="section-2">
+  <div class="section-inner">
+    <span class="section-number">РАЗДЕЛ II</span>
+    <h2>Ваши ближайшие аналоги: что делают мебельщики за рубежом</h2>
+    <p>Не Tesla и не Harley-Davidson. Вот компании, которые производят то же, что и вы, &mdash; кастомную мебель и кухни, &mdash; и у которых есть реферальные или клубные программы.</p>
+
+    <div class="card card-green">
+      <h4>Wren Kitchens (Великобритания), кухни на заказ</h4>
+      <p>Программа &laquo;Recommend a Friend&raquo;: до <strong>&pound;500</strong> за каждого приведённого клиента. Двусторонний реферал &mdash; и рекомендатель, и новый клиент получают вознаграждение. Конкретные финансовые результаты компания не раскрывает. Прямой аналог по продукту и чеку, механика проста: переносимость к российской кастомной мебели высокая.</p>
+    </div>
+
+    <div class="card card-green">
+      <h4>noo.ma (Польша), мебель</h4>
+      <p>Программа &laquo;Circle of Friends&raquo;: <strong>100 PLN</strong> подарочной картой новому клиенту плюс <strong>200 PLN</strong> рефереру. Используется именно подарочная карта, а не скидка, чтобы не обесценивать бренд. Принцип легко переносим.</p>
+    </div>
+
+    <div class="card">
+      <h4>LAZZONI (Турция/США), мебель</h4>
+      <p>До 20% скидки приведённому другу, <strong>25%</strong> магазинным кредитом рефереру. Вознаграждение пропорционально сумме продажи и масштабируется с чеком. Механика рабочая, но 25% кредита требует тщательного расчёта маржинальности.</p>
+    </div>
+
+    <div class="card">
+      <h4>MADE (Великобритания), мебель онлайн</h4>
+      <p>Программа &laquo;Unboxed&raquo;: клиенты фотографируют мебель в реальных домах, фото публикуются на сайте с указанием автора. Мотивация здесь не скидка, а признание и статус. Результат: снижение возвратов, рост конверсии на страницах с пользовательским контентом. Эффект на социальное доказательство в соцсетях высокий, хотя для офлайн-студий прямое e-commerce влияние ограничено.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SECTION III ====== -->
+<section class="section section-light" id="section-3">
+  <div class="section-inner">
+    <span class="section-number">РАЗДЕЛ III</span>
+    <h2>Смежные категории: тот же цикл покупки, другой продукт</h2>
+    <p>Компании из ремонта, солнечной энергетики, автомобильной отрасли имеют тот же структурный профиль: высокий чек, редкая покупка, длинный цикл сделки. Их опыт переносим с поправкой на продукт.</p>
+
+    <div class="card card-green">
+      <h4>Solar-компания (Австралия), средний чек ~$6 000</h4>
+      <p>$500 за каждого реферала. Реферер видит статус в реальном времени на личном дашборде. Средний цикл: около 4 месяцев от реферала до выплаты. По данным опубликованного кейса, результат: 3 710 лидов, конверсия 38%, 1 410 сделок, <strong>$8,46M</strong> выручки. ROI 10x. За шесть месяцев стал каналом номер один по привлечению. Средний чек и цикл сделки близки к мебельному, и самое ценное здесь: программа работает даже при длинном цикле.</p>
+    </div>
+
+    <div class="card card-green">
+      <h4>MyHome (США), ремонт, чек $15K&ndash;$100K+</h4>
+      <p>$750 рефереру плюс $1 000 скидка новому клиенту. Предусмотрена эскалация: 4 реферала за год дают до $6 000 суммарно. По данным компании, один из ключевых каналов привлечения. Эскалация (чем больше рекомендаций, тем выше награда) мотивирует повторные действия.</p>
+    </div>
+
+    <div class="card card-green">
+      <h4>Casper (США), матрасы, чек $1 000&ndash;$3 000</h4>
+      <p>$75 картой Amazon рефереру плюс 25% скидка новому клиенту. Ключевая особенность: запрос реферала привязан к NPS и отправляется только клиентам с оценкой 9&ndash;10. По данным опубликованного кейса, результат: <strong>7x ROI</strong> по сравнению со средним каналом. A/B-тест показал +13% конверсии при таком подходе по сравнению с массовой рассылкой. Принцип &laquo;спрашивать только довольных&raquo; не зависит от продукта.</p>
+    </div>
+
+    <div class="card">
+      <h4>Weeks Homes (Австралия), строительство домов</h4>
+      <p>$1 500 подарочной картой рефереру плюс $1 500 ваучером новому клиенту при старте строительства. Редчайшая покупка, высочайший чек, и реферал работает. Этот кейс доказывает, что реферальная модель применима при любой частоте покупки, даже &laquo;раз в жизни&raquo;.</p>
+    </div>
+
+    <blockquote><strong>Ещё 8 программ</strong> (Renewal by Andersen, CliqStudios, Warby Parker, Peloton и др.) собраны в Приложении B.</blockquote>
+  </div>
+</section>
+
+<!-- ====== SECTION IV ====== -->
+<section class="section section-white" id="section-4">
+  <div class="section-inner">
+    <span class="section-number">РАЗДЕЛ IV</span>
+    <h2>Что не работает: задокументированные провалы</h2>
+    <p>Эти кейсы важны не меньше, чем успехи. Каждый провал отвечает на вопрос &laquo;а что если сделать вот так?&raquo;</p>
+
+    <div class="card card-danger">
+      <h4>&laquo;Скидка как основа&raquo;: J.Crew (банкротство)</h4>
+      <p>С 2014 года компания проводила перманентные промоакции на 40&ndash;50%. Программа лояльности строилась на баллах, конвертируемых в скидки. Полноценные продажи без скидки упали до <strong>25&ndash;30%</strong>. Бренд из &laquo;доступного люкса&raquo; превратился в &laquo;магазин вечной распродажи&raquo;. Выручка сократилась с $2,5B до $1,7B. Банкротство наступило в мае 2020.</p>
+      <p>В то же время RH пошёл в противоположном направлении: полностью отменил промоакции, заменив их платным членством. Выручка выросла с $2,4B до $3,6B.</p>
+      <p>Стоит отметить, что <strong>MZ5-Диваны</strong> (кэшбэк 50%, списание 90%) находятся на траектории J.Crew. К этому наблюдению пришли три из пяти исследований.</p>
+    </div>
+
+    <div class="card card-danger">
+      <h4>&laquo;Набрали базу, не активировали&raquo;: Macy's (125+ магазинов закрыто)</h4>
+      <p>Десятки миллионов участников, лишь около 30% активных. Массированные email-кампании реактивации давали убывающую отдачу. По данным Colloquy (2017), <strong>58%</strong> &laquo;спящих&raquo; участников невозможно реактивировать стандартным маркетингом. Через 12 месяцев неактивности шансы на возврат составляют 3&ndash;5%.</p>
+      <p>Hoff (1M+ карт, срок бонусов 6 месяцев, ноль элементов сообщества) структурно находится в аналогичной ситуации.</p>
+    </div>
+
+    <div class="card card-danger">
+      <h4>&laquo;Сложная система&raquo;: Neiman Marcus InCircle (банкротство)</h4>
+      <p>Многоуровневая система (Circle 1&ndash;5 плюс InCircle Plus), разные ставки по категориям, сгорающие баллы. Участники сокращались на <strong>15&ndash;20%</strong> в год. Банкротство в 2020. По данным Bond (2022), причина неактивности номер два среди участников программ лояльности: &laquo;слишком сложно разобраться&raquo; (24% респондентов).</p>
+      <p>Дятьково с накопительной скидкой &laquo;до 40%&raquo; без чёткой публичной документации рискует тем же.</p>
+    </div>
+
+    <div class="card card-danger">
+      <h4>&laquo;Вознаграждаем покупку при цикле 5 лет&raquo;: Ethan Allen</h4>
+      <p>Клиент покупает диван за $3 000, получает 3% ($90 в баллах). Следующая крупная покупка через 5 лет. К тому моменту баллы сгорели, клиент забыл, $90 нерелевантны. Компания в итоге переключилась на дизайн-сервис как реальный механизм удержания.</p>
+      <p>Почему это важно для российского рынка? <strong>12 из 14</strong> проанализированных мебельных программ вознаграждают исключительно покупки. Ни одна не вознаграждает поведение между покупками: отзывы, рекомендации, участие.</p>
+    </div>
+
+    <div class="card card-danger">
+      <h4>&laquo;Обесценили баллы&raquo;: Starbucks (&minus;30% sentiment), Victoria's Secret (&minus;27% выручки)</h4>
+      <p>Starbucks дважды менял правила программы (2016, 2019). Каждый раз sentiment падал более чем на 30% (Brandwatch), снижались транзакции. Компания выстояла благодаря силе бренда. Victoria's Secret неоднократно ужесточала условия. Выручка сократилась с $7,4B до $5,4B. По данным Bond (2019), <strong>67%</strong> клиентов почувствовали бы себя &laquo;преданными&raquo; при обесценивании баллов.</p>
+      <p>Вывод для любой балловой системы: она создаёт ожидание стабильности. Изменение правил токсично.</p>
+    </div>
+
+    <div class="card card-danger">
+      <h4>&laquo;Формализовали зависимость от скидки&raquo;: Bed Bath &amp; Beyond (банкротство)</h4>
+      <p>Подписка Beyond+ ($29/год за 20% на всё) стала кодификацией многолетней зависимости от купонов. Те, кто не вступил, почувствовали, что платят за ранее бесплатные скидки. Банкротство в 2023. Same-store sales падали <strong>8 кварталов подряд</strong>.</p>
+    </div>
+
+    <div class="card">
+      <h4>Юридический аспект в РФ: &laquo;дай телефон друга&raquo;</h4>
+      <p>ФЗ о персональных данных: прямой контакт для продвижения допустим только при предварительном согласии субъекта. Механика &laquo;передайте нам телефон друга&raquo; несёт юридические риски. В успешных реферальных программах по всему миру используется модель реферальной ссылки: клиент сам отправляет ссылку другу. Это критически важно. <strong>Любая реферальная механика в России должна строиться именно на этом принципе.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SECTION V ====== -->
+<section class="section section-light" id="section-5">
+  <div class="section-inner">
+    <span class="section-number">РАЗДЕЛ V</span>
+    <h2>Почему одни механики генерируют рекомендации, а другие нет: данные исследований</h2>
+    <p>Здесь не теория, а конкретные цифры из академических и отраслевых исследований. Два ключевых вопроса: когда клиент готов рекомендовать и что его мотивирует.</p>
+
+    <h3>Когда клиент готов рекомендовать</h3>
+    <p>Casper провёл A/B-тест: реферальный запрос, привязанный к моменту высокой оценки NPS, дал <strong>+13%</strong> конверсии по сравнению с запросом &laquo;в среднем по базе&raquo;. Австралийская Solar-компания отправляла реферальный запрос в первую неделю и получила <strong>38%</strong> конверсию при четырёхмесячном цикле сделки.</p>
+    <p>По данным платформ ReferralCandy и Extole (2021&ndash;2022), запросы в первую неделю после установки генерируют в <strong>3&ndash;5 раз</strong> больше конверсий, чем через 30+ дней. Письмо типа &laquo;Как вам ваш [продукт]?&raquo; на 3&ndash;7 день показывает open rate <strong>40&ndash;50%</strong> (против 15&ndash;20% у стандартной рассылки): оно воспринимается как сервис, а не реклама.</p>
+    <p>Научная база подтверждает эту картину. Канеман (Peak-End Rule) показал, что человек оценивает опыт по пиковому моменту и финалу. Бергер (Wharton, 2013) обнаружил, что физиологическое возбуждение повышает склонность делиться на <strong>33%</strong>. McKinsey указывает, что 60&ndash;90 дней после крупной покупки составляют пик потенциала адвокации, но большинство компаний не активируют клиентов в этот период.</p>
+    <p><strong>Установка кастомной мебели &mdash; один из самых эмоциональных моментов в обустройстве дома.</strong> К этому выводу независимо пришли все пять исследований.</p>
+
+    <h3>Что мотивирует рекомендовать: деньги, статус или впечатления</h3>
+    <p>Три исследования проливают свет на этот вопрос.</p>
+    <p>Ryu и Feick (Journal of Marketing, 2007) обнаружили, что денежное вознаграждение <strong>снижает</strong> качество рефералов на <strong>18&ndash;24%</strong> при рекомендациях близким друзьям и семье. Причина: коммерческий контекст подрывает доверие (&laquo;он рекомендует ради денег&raquo;). Для слабых связей (знакомые, коллеги) деньги работают нормально.</p>
+    <p>По данным NYT Customer Insight Group (2011, 2 500 респондентов), <strong>68%</strong> людей делятся контентом, чтобы показать, кто они. <strong>94%</strong> оценивают полезность для получателя. И только <strong>2%</strong> делятся ради денежного стимула.</p>
+    <p>Серия лабораторных и полевых исследований показала, что нематериальные награды (впечатления, статус, эксклюзивный доступ) сильнее поднимают вовлечённость и сарафанное радио, чем материальные (деньги, скидки). Tesla подтверждает это на практике: впечатления (тур по SpaceX) конвертировали лучше денежных кредитов в истории их реферальной программы.</p>
+    <p>Для рекомендаций близким впечатления работают лучше денег. Для широкого круга знакомых (коллеги, соседи, разговоры о ремонте) денежный стимул допустим. Но в российском мебельном контексте, где стигма MLM сильна (наблюдение Gemini), формулировка &laquo;получи процент от друга&raquo; создаёт дополнительный барьер.</p>
+
+    <h3>Идентичность против транзакции: что устойчивее</h3>
+    <p>Bhattacharya и Sen (Journal of Marketing, 2003) показали, что лояльность, основанная на идентификации с брендом, в <strong>3&ndash;5 раз</strong> устойчивее скидочной. По данным HBR (2011), удержание программ на идентичности в <strong>4 раза</strong> выше при ценовых войнах. Fournier и Lee (HBR, 2009) обнаружили, что сообщество вокруг &laquo;общей страсти&raquo; удерживает участников в <strong>5 раз</strong> дольше, чем сообщество, построенное вокруг бренда.</p>
+    <p>Кейс-подтверждение: члены Harley H.O.G. тратят на 30% больше не из-за скидки, а из-за принадлежности. 52% покупателей новых мотоциклов Harley были его прежними владельцами.</p>
+    <p>Harley создавал эту идентичность 40 лет. Для мебельной студии такой масштаб недостижим. Но принцип &laquo;клуб вокруг обустройства дома, а не вокруг шкафов&raquo; вполне применим.</p>
+
+    <h3>Ключевые цифры для расчётов</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Метрика</th><th>Бенчмарк</th><th>Источник</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>LTV реферального клиента</td><td><strong>+16&ndash;25%</strong> vs. обычного</td><td>Wharton / Journal of Marketing</td></tr>
+          <tr><td>Удержание реферальных</td><td><strong>+37%</strong></td><td>Deloitte</td></tr>
+          <tr><td>&laquo;Реферальная заразность&raquo;</td><td>Приведённые дают <strong>+31&ndash;57%</strong> рекомендаций сами</td><td>HBR</td></tr>
+          <tr><td>Готовы рекомендовать vs. делают это</td><td><strong>83% vs. 29%</strong></td><td>rivo.io</td></tr>
+          <tr><td>Средняя доля рекомендателей</td><td><strong>2,35%</strong>, лидеры <strong>8%+</strong></td><td>rivo.io</td></tr>
+          <tr><td>Конверсия реферальных vs. холодных</td><td><strong>30&ndash;38%</strong> vs. <strong>5&ndash;10%</strong></td><td>Extole, Solar-кейс</td></tr>
+          <tr><td>Снижение стоимости привлечения</td><td><strong>24&ndash;35%</strong></td><td>Forrester</td></tr>
+          <tr><td>Участники бесплатных клубов тратят больше</td><td><strong>+30%</strong></td><td>McKinsey</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Разрыв между &laquo;83% готовы&raquo; и &laquo;29% делают&raquo; &mdash; и есть то пространство, которое закрывает системная работа с рекомендациями.</p>
+    <blockquote><strong>Полная таблица научных данных</strong> (10+ исследований с источниками) собрана в Приложении C.</blockquote>
+  </div>
+</section>
+
+<!-- ====== KEY NUMBERS STATS BAR ====== -->
+<section class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-number">+16-25%</span>
+      <span class="stat-label">LTV реферального клиента vs. обычного</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">+37%</span>
+      <span class="stat-label">Удержание реферальных клиентов</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">30-38%</span>
+      <span class="stat-label">Конверсия рефералов vs. 5-10% холодных</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">83% vs 29%</span>
+      <span class="stat-label">Готовы рекомендовать vs. делают это</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">0 из 14</span>
+      <span class="stat-label">Российских мебельщиков имеют клуб-сообщество</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SECTION VI ====== -->
+<section class="section section-white" id="section-6">
+  <div class="section-inner">
+    <span class="section-number">РАЗДЕЛ VI</span>
+    <h2>Крупные бренды: масштаб и пределы переносимости</h2>
+    <p>Эти программы часто цитируются, но их масштаб делает прямой перенос невозможным. Ценны не размеры, а конкретные механики.</p>
+
+    <div class="card">
+      <h4>RH (Restoration Hardware)</h4>
+      <p>Платная подписка $200/год, дающая 25&ndash;30% на всё. Около <strong>95%</strong> выручки приходится на участников. Компания полностью отказалась от распродаж. Выручка выросла с $2,4B до $3,6B. По масштабу это непереносимо, но принцип &laquo;заплати за вход, получи постоянную ценность&raquo; применим как VIP-уровень для клиентов с крупными проектами.</p>
+    </div>
+
+    <div class="card">
+      <h4>Porsche Club</h4>
+      <p>180 000 членов: трек-дни, заводские туры. Показатели удержания впечатляют: <strong>95%</strong> retention, <strong>80%</strong> повторных покупок за 5 лет. Масштаб недоступен, но принцип очевиден: впечатления как ядро лояльности, а не скидки.</p>
+    </div>
+
+    <div class="card">
+      <h4>Harley H.O.G.</h4>
+      <p>1,1M членов, существует более 40 лет, проводит 4 000+ событий в год. Члены тратят на <strong>30%</strong> больше. Масштаб нереалистичен, но урок ясен: идентичность и принадлежность сильнее транзакционных стимулов.</p>
+    </div>
+
+    <div class="card">
+      <h4>Tesla</h4>
+      <p>ROI <strong>40&ndash;119x</strong> при нулевом рекламном бюджете. Один блогер сгенерировал $44M продаж. И опять то же наблюдение: нематериальные награды (тур по SpaceX, приглашение на презентацию) конвертировали эффективнее денежных кредитов.</p>
+    </div>
+
+    <div class="card card-green">
+      <h4>LEGO Insiders</h4>
+      <p>Начисляет баллы за нетранзакционное поведение: регистрацию, участие в форумах, творческие работы. На <strong>15&ndash;35%</strong> выше вовлечённость по сравнению с чисто транзакционными программами. Этот принцип переносим напрямую: вознаграждать поведение (отзывы, фото, рекомендации), а не только покупку.</p>
+    </div>
+
+    <div class="card">
+      <h4>Warby Parker</h4>
+      <p>Около <strong>90%</strong> новых клиентов через сарафанное радио и рефералы. &laquo;Фотогеничный&raquo; продукт помогает, но главный принцип &laquo;сделать продукт достойным обсуждения&raquo; переносим на любую категорию.</p>
+    </div>
+
+    <blockquote><strong>Полная таблица всех 20 мировых программ</strong> собрана в Приложении B.</blockquote>
+  </div>
+</section>
+
+<!-- ====== SECTION VII ====== -->
+<section class="section section-light" id="section-7">
+  <div class="section-inner">
+    <span class="section-number">РАЗДЕЛ VII</span>
+    <h2>Точки консенсуса: в чём сошлись все 5 исследований</h2>
+
+    <h3>Все 5 из 5 исследований</h3>
+    <ul class="consensus-list">
+      <li>Транзакционные бонусные программы не генерируют сарафанное радио при цикле покупки 5+ лет</li>
+      <li>Российский мебельный рынок не имеет ни одного клуба-сообщества для конечных клиентов</li>
+      <li>Первые 48&ndash;72 часа после установки &mdash; окно максимальной готовности к рекомендации</li>
+      <li>Telegram стал дефолт-платформой для закрытых клубов в России (96M пользователей, ноль мебельных клубов)</li>
+      <li>Гибридная модель (сообщество + реферал) эффективнее любого элемента по отдельности</li>
+      <li>Программы на идентичности устойчивее программ на скидках</li>
+    </ul>
+
+    <h3>4 из 5 исследований</h3>
+    <ul class="consensus-list">
+      <li>Нематериальные вознаграждения генерируют больше рекомендаций, чем денежные</li>
+      <li>Приведённые клиенты имеют более высокий LTV (+16&ndash;25%)</li>
+    </ul>
+
+    <h3>3 из 5 исследований</h3>
+    <ul class="consensus-list">
+      <li>Денежные вознаграждения снижают качество рекомендаций близким</li>
+      <li>Ежегодный сервисный контакт является эффективной точкой реферального касания</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ====== SECTION VIII ====== -->
+<section class="section section-white" id="section-8">
+  <div class="section-inner">
+    <span class="section-number">РАЗДЕЛ VIII</span>
+    <h2>Оценка применимости к российской кастомной мебели</h2>
+
+    <h3>Высокая применимость</h3>
+    <div class="card applicability-high" style="border-left-color:#10b981;">
+      <p><strong>Реферальная механика с тайминг-триггером</strong> (48&ndash;72 часа после установки) подтверждена данными из аналогичных категорий (Solar, Casper, MyHome). Она не зависит от масштаба бизнеса. Установка кастомной мебели &mdash; один из самых эмоциональных бытовых моментов. Юридически чистая модель строится на реферальной ссылке, когда клиент сам отправляет её другу.</p>
+    </div>
+    <div class="card applicability-high" style="border-left-color:#10b981;">
+      <p><strong>Telegram как платформа закрытого клуба</strong> обладает выраженной российской спецификой: 96M пользователей, зрелая механика закрытых групп, нулевая конкуренция в мебельной нише.</p>
+    </div>
+    <div class="card applicability-high" style="border-left-color:#10b981;">
+      <p><strong>Ежегодный сервисный контакт</strong> как точка реферального касания органичен для мебельного бизнеса. Кастомная мебель объективно требует периодической регулировки фурнитуры. Не нужно создавать новый продукт, достаточно переупаковать существующий.</p>
+    </div>
+    <div class="card applicability-high" style="border-left-color:#10b981;">
+      <p><strong>Нематериальные вознаграждения вместо денежных</strong> &mdash; академически подтверждены (Ryu &amp; Feick, серия лабораторных и полевых исследований). В российском контексте они снимают стигму MLM и не обесценивают бренд.</p>
+    </div>
+
+    <h3>Средняя применимость</h3>
+    <div class="card applicability-mid">
+      <p><strong>Платный VIP-уровень</strong> (модель RH) работает при обстановке всего дома (2+ комнаты). Для mid-market создаёт барьер, для верхнего ценового сегмента потенциально эффективен.</p>
+    </div>
+    <div class="card applicability-mid">
+      <p><strong>Амбассадорская программа</strong> (модель Subaru) масштабируема при клиентской базе 50+ активных клиентов. На старте преждевременна.</p>
+    </div>
+    <div class="card applicability-mid">
+      <p><strong>UGC-программа</strong> (модель MADE) даёт высокий эффект на социальное доказательство в соцсетях, но ограниченный прямой e-commerce эффект для офлайн-студий.</p>
+    </div>
+    <div class="card applicability-mid">
+      <p><strong>Контринтуитивное наблюдение Perplexity:</strong> при крупной покупке вознаграждение только новому клиенту может быть эффективнее двустороннего. Рекомендация мотивирована заботой о друге, а не вознаграждением. Зафиксировано в одном из пяти исследований, требует тестирования.</p>
+    </div>
+
+    <h3>Низкая применимость</h3>
+    <div class="card applicability-low" style="border-left-color:#94a3b8;">
+      <p><strong>Глобальные масштабы сообществ</strong> (тысячи членов, сотни событий). Harley H.O.G., PCA, IKEA Family являются результатом десятилетий работы глобальных брендов. Механики переносимы, масштаб &mdash; нет.</p>
+    </div>
+    <div class="card applicability-low" style="border-left-color:#94a3b8;">
+      <p><strong>Полный отказ от скидок.</strong> RH мог позволить себе это при силе бренда и обороте $3,6B. На российском mid-market рынке с высокой ценовой чувствительностью это рискованно.</p>
+    </div>
+    <div class="card applicability-low" style="border-left-color:#94a3b8;">
+      <p><strong>Сложные тирированные балловые системы.</strong> По данным отраслевых аналитиков, 24% бросают из-за сложности, 73% функций программ неиспользуемы (Capgemini), а 86% заработанных баллов никогда не применяются (Smile.io).</p>
+    </div>
+
+    <h3>Ключевые риски</h3>
+    <div class="table-wrap">
+      <table class="risk-table">
+        <thead>
+          <tr><th>Риск</th><th>Суть</th><th>Данные</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Скептицизм</td><td>Программа, воспринимаемая как &laquo;ещё один способ продать&raquo;, отталкивает</td><td>23% ориентируются на бонусы при выборе мебели (НАФИ)</td></tr>
+          <tr><td>Стигма MLM</td><td>Денежное вознаграждение за рекомендации ассоциируется с &laquo;заработком на друзьях&raquo;</td><td>Клиент ставит на кон репутацию (наблюдение Gemini)</td></tr>
+          <tr><td>Юридический</td><td>ФЗ о ПДн запрещает контакт без согласия</td><td>Реферальная ссылка &mdash; единственная чистая модель (GPT)</td></tr>
+          <tr><td>Ресурсный</td><td>Клуб без контента превращается в &laquo;мёртвый чат&raquo; за 2&ndash;3 месяца</td><td>73% функций программ неиспользуемы (Capgemini)</td></tr>
+          <tr><td>&laquo;Ещё одна карта&raquo;</td><td>Если клуб похож на бонусную программу, он попадает в пул 16,6 программ</td><td>Программы, &laquo;похожие на все&raquo;, теряют 60% вовлечения (Capgemini)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Структурное наблюдение</h3>
+    <p>Российский мебельный рынок находится в ситуации, где отсутствие конкуренции в области клубов клиентов (0 сообществ, 0 амбассадорских программ, 1 реферал из 14 компаний) означает следующее: <strong>даже минимальная реализация любой из высокоприменимых механик создаёт дифференциацию</strong> на рынке, где все 14 игроков используют идентичный инструмент.</p>
+    <p>Одновременно <strong>более 50%</strong> мебельных компаний планируют запуск программ лояльности (E-Promo). Окно, в котором ниша пуста, конечно.</p>
+  </div>
+</section>
+
+<!-- ====== APPENDICES ====== -->
+<section class="section section-light" id="appendices">
+  <div class="section-wide">
+    <span class="section-number">ПРИЛОЖЕНИЯ</span>
+    <h2>Данные и таблицы</h2>
+
+    <!-- Appendix A -->
+    <details>
+      <summary>Приложение A. Полная таблица: 14 российских компаний</summary>
+      <div class="details-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Компания</th>
+                <th>Программа</th>
+                <th>Тип</th>
+                <th>Основные условия</th>
+                <th>Реферал</th>
+                <th>Community</th>
+                <th>Наблюдения</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Hoff</strong></td><td>Hoff Бонус</td><td>Бонусная</td><td>2&ndash;5&ndash;10%, списание до 50%, 6 мес.</td><td>Нет</td><td>Нет</td><td>1M+ карт. Кросс-покупки, но не сарафанное радио</td></tr>
+              <tr><td><strong>Askona</strong></td><td>Клуб здорового сна</td><td>Бонусная + шеринг</td><td>5%, квартальные 1 000&#8381;, birthday 3 000&#8381;, списание до 20%</td><td>Шеринг бонусов (мягкий реферал)</td><td>Название без содержания</td><td>Единственный &laquo;мягкий реферал&raquo;</td></tr>
+              <tr><td><strong>Mr.Doors</strong></td><td>PREMIER</td><td>VIP-сервис</td><td>От 1,5M&#8381;: топ-дизайнеры, бессрочная гарантия, тревел-бонус</td><td>Нет</td><td>Консьерж-сервис</td><td>Близко к RH, но без контура рекомендаций</td></tr>
+              <tr><td><strong>Stolplit</strong></td><td>Столплит Клуб</td><td>Бонусная</td><td>3%, списание до 20%, 365 дней</td><td>Можно подарить бонусы</td><td>Нет</td><td>Стандартная транзакционная</td></tr>
+              <tr><td><strong>Lazurit</strong></td><td>Дисконтная + Pro</td><td>Скидочная + B2B</td><td>10&ndash;15% B2C, до 20% B2B</td><td>Только B2B</td><td>Только для дизайнеров</td><td>B2B развита лучше B2C</td></tr>
+              <tr><td><strong>Кухни Мария</strong></td><td>Акции + MariaDesignPeople</td><td>Сезонная + B2B</td><td>До 25% акции, кэшбэк Альфа (временный)</td><td>Только B2B</td><td>Только для дизайнеров</td><td>300+ салонов, B2C ограничена акциями</td></tr>
+              <tr><td><strong>Ангстрем</strong></td><td>Бонусная</td><td>Бонусная</td><td>2%, списание до 50%, 15% новосёлам</td><td>Нет</td><td>Нет</td><td>15% новосёлам &mdash; уникальная механика</td></tr>
+              <tr><td><strong>Дятьково</strong></td><td>Накопительная</td><td>Скидочная</td><td>До 40%</td><td>Нет</td><td>Нет</td><td>Минимум публичной информации</td></tr>
+              <tr><td><strong>Шатура</strong></td><td>Нет программы</td><td>&mdash;</td><td>Распродажи, бонусы за отзывы</td><td>Нет</td><td>Нет</td><td>Полагается на бренд-наследие</td></tr>
+              <tr><td><strong>Divan.ru</strong></td><td>Divan.Club</td><td>Бонусная (Mindbox)</td><td>5%, списание до 15%, birthday 2 000&#8381;</td><td>Планируется</td><td>Нет</td><td>70% проникновение за 3 мес.</td></tr>
+              <tr><td><strong>Цвет Диванов</strong></td><td>Вокруг дивана</td><td>Тирированная</td><td>3&ndash;7%, списание до 70%, 3 года</td><td>Нет</td><td>Минимальный</td><td>Самый длинный срок бонусов</td></tr>
+              <tr><td><strong>Орматек</strong></td><td>Клуб Орматек</td><td>Бонусная</td><td>2&ndash;10%, списание до 99%</td><td>Нет</td><td>Нет</td><td>Фактически скидочная</td></tr>
+              <tr><td><strong>Фран</strong></td><td>Фран Прайм</td><td>Бонусная + реферал</td><td>3%, двусторонний реферал, birthday 1 000&#8381;</td><td><strong>Да &mdash; единственный</strong></td><td>Нет</td><td>Реферал спрятан, не в пост-покупочной коммуникации</td></tr>
+              <tr><td><strong>MZ5</strong></td><td>MZ5 BONUS</td><td>Агрессивная</td><td>До 50% кэшбэк, списание до 90%</td><td>Нет</td><td>Нет</td><td>Антипример: уничтожение маржи</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <!-- Appendix B -->
+    <details>
+      <summary>Приложение B. Полная таблица: 20 мировых программ</summary>
+      <div class="details-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Компания</th>
+                <th>Страна</th>
+                <th>Сегмент</th>
+                <th>Механика</th>
+                <th>Элемент рекомендаций</th>
+                <th>Результат</th>
+                <th>Переносимость</th>
+                <th>Достоверность</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Wren Kitchens</td><td>Великобритания</td><td>Кухни</td><td>До &pound;500 за реферал</td><td>Прямой двусторонний</td><td>Активная</td><td>Высокая</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>2</td><td>noo.ma</td><td>Польша</td><td>Мебель</td><td>Gift card 100+200 PLN</td><td>Двусторонний give-get</td><td>Активная</td><td>Высокая</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>3</td><td>LAZZONI</td><td>Турция/США</td><td>Мебель</td><td>20% другу, 25% store credit</td><td>Пропорционален чеку</td><td>Активная</td><td>Средняя</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>4</td><td>MADE</td><td>Великобритания</td><td>Мебель онлайн</td><td>UGC: фото в реальных домах</td><td>Признание > скидка</td><td>Рост конверсии</td><td>Средняя</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>5</td><td>Solar (Австралия)</td><td>Австралия</td><td>Solar</td><td>$500 за реферал + дашборд</td><td>Ядро</td><td>$8,46M, канал #1</td><td>Высокая</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>6</td><td>MyHome</td><td>США</td><td>Ремонт</td><td>$750 + эскалация до $6K</td><td>Двусторонний</td><td>Ключевой канал</td><td>Высокая</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>7</td><td>Weeks Homes</td><td>Австралия</td><td>Строительство</td><td>$1 500 + $1 500</td><td>Двусторонний</td><td>Активная</td><td>Средняя</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>8</td><td>Casper</td><td>США</td><td>Матрасы</td><td>$75 + 25% скидка</td><td>Привязан к NPS</td><td>7x ROI</td><td>Высокая</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>9</td><td>Renewal by Andersen</td><td>США</td><td>Окна/двери</td><td>$250 за проект</td><td>По завершении</td><td>Активная</td><td>Средняя</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>10</td><td>CliqStudios</td><td>США</td><td>Кух. шкафы</td><td>$200 gift card (>$7K)</td><td>Порог качества</td><td>Активная</td><td>Высокая</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>11</td><td>RH</td><td>США</td><td>Премиум мебель</td><td>Подписка $200/год &rarr; 25&ndash;30%</td><td>Органическое сарафанное радио</td><td>~95% выручки</td><td>Низкая (масштаб)</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>12</td><td>Tesla</td><td>США</td><td>Авто</td><td>Тирированные награды</td><td>Двусторонний + эскалация</td><td>ROI 40&ndash;119x</td><td>Низкая (масштаб)</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>13</td><td>Subaru</td><td>Япония/США</td><td>Авто</td><td>Амбассадоры + $500 купоны</td><td>Grassroots</td><td>Приостановлена (избыток)</td><td>Средняя</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>14</td><td>Harley H.O.G.</td><td>США</td><td>Мото</td><td>Клуб, 4K+ событий/год</td><td>Идентичность</td><td>1,1M членов, +30%</td><td>Низкая (масштаб)</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>15</td><td>Porsche</td><td>Германия</td><td>Авто люкс</td><td>PCA + Experience</td><td>Органический</td><td>95% retention</td><td>Низкая (масштаб)</td><td><span class="badge badge-estimated">ESTIMATED</span></td></tr>
+              <tr><td>16</td><td>IKEA</td><td>Глобально</td><td>Мебель масс</td><td>Бесплатный клуб, мастер-классы</td><td>Косвенный</td><td>150M+ участников</td><td>Средняя</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>17</td><td>Westwing</td><td>Германия</td><td>Мебель/декор</td><td>Flash-sale + ваучер 30 EUR</td><td>Двусторонний</td><td>80% repeat</td><td>Средняя</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>18</td><td>LEGO</td><td>Глобально</td><td>Игрушки</td><td>Нетранзакционные баллы</td><td>Идентичность + UGC</td><td>+15&ndash;35% вовлечённость</td><td>Высокая (принцип)</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>19</td><td>Sephora</td><td>Глобально</td><td>Люкс-косметика</td><td>3 тира, закрытые события</td><td>Статус + реферал</td><td>Золотой стандарт</td><td>Средняя</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>20</td><td>Warby Parker</td><td>США</td><td>Оптика</td><td>Shareable experience</td><td>+40% шеров</td><td>~90% через рекомендации</td><td>Средняя</td><td><span class="badge badge-estimated">ESTIMATED</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+    <!-- Appendix C -->
+    <details>
+      <summary>Приложение C. Полная таблица научных данных</summary>
+      <div class="details-body">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Что исследовали</th>
+                <th>Результат</th>
+                <th>Источник</th>
+                <th>Достоверность</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Ценность приведённых клиентов</td><td>LTV +16%</td><td>Schmitt et al., JM 2011</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Маржинальность приведённых</td><td>+25%</td><td>Journal of Marketing, 2017</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Удержание приведённых</td><td>+37%</td><td>Deloitte</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>&laquo;Реферальная заразность&raquo;</td><td>+31&ndash;57% рекомендаций от приведённых</td><td>HBR</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Двусторонние vs. односторонние rewards</td><td>+86% рефералов</td><td>Yale/Berkeley, 2019</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Деньги для близких связей</td><td>&minus;18&ndash;24% качество</td><td>Ryu &amp; Feick, JM 2007</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Нематериальные vs. материальные</td><td>Нематериальные сильнее для рекомендаций</td><td>Серия lab + field</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Мотивация делиться</td><td>68% &mdash; самопрезентация, 2% &mdash; деньги</td><td>NYT, 2011</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Обучение клиента &rarr; рекомендации</td><td>Повышает позитивные рекомендации</td><td>&laquo;Gift of expertise&raquo;</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Социально-валютные награды</td><td>+31% достоверность vs. денежных</td><td>Wirtz et al., JSM 2013</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Идентичность vs. скидки</td><td>3&ndash;5x устойчивее</td><td>Bhattacharya &amp; Sen, JM 2003</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Идентичность при ценовых войнах</td><td>4x удержание</td><td>HBR, 2011</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Сообщество вокруг страсти vs. бренда</td><td>5x дольше удержание</td><td>Fournier &amp; Lee, HBR 2009</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Peak-End Rule</td><td>Пик + финал определяют оценку</td><td>Канеман</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Возбуждение &rarr; sharing</td><td>+33%</td><td>Бергер, Wharton 2013</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Неактивные участники</td><td>54% неактивны</td><td>Bond, 2022</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Причина неактивности #1</td><td>&laquo;Забыл&raquo; (28%)</td><td>Bond, 2022</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Причина неактивности #2</td><td>&laquo;Сложно&raquo; (24%)</td><td>Bond, 2022</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Функции программ неиспользуемы</td><td>73%</td><td>Capgemini, 2020</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Баллы не используются</td><td>86%</td><td>Smile.io (100K+ мерчантов)</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>NPS-лидеры: рост</td><td>2x vs. рынок</td><td>Bain</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+              <tr><td>Promoters: LTV</td><td>3&ndash;8x vs. Detractors</td><td>Bain</td><td><span class="badge badge-verified">VERIFIED</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 style="margin-top:1.5rem; font-family:'Inter',sans-serif; font-size:0.95rem;">Шкала достоверности</h4>
+        <p style="font-size:0.9rem; color:#64748b; margin-top:0.5rem;">
+          <span class="badge badge-verified">VERIFIED</span> &mdash; подтверждено из первичных источников, зафиксировано минимум в 2 из 5 отчётов<br>
+          <span class="badge badge-estimated">ESTIMATED</span> &mdash; экстраполировано из косвенных источников или зафиксировано в 1 отчёте
+        </p>
+      </div>
+    </details>
+
+    <!-- Methodology -->
+    <details>
+      <summary>Как проводилось исследование</summary>
+      <div class="details-body">
+        <p>Одно задание из 4 частей (глобальные бенчмарки, российский рынок, механики сарафанного радио, стратегический синтез) было отдано 5 ИИ-системам: Claude Opus, ChatGPT Deep Research, Perplexity, Kimi, Gemini. Каждая работала в режиме глубокого исследования, независимо от остальных. Затем проведены сравнительный синтез, извлечение фактов, оценка применимости, переработка структуры по методу DEO (Distance-Engagement Oscillation).</p>
+        <div class="table-wrap" style="margin-top:1rem;">
+          <table class="method-table">
+            <thead>
+              <tr><th>ИИ</th><th>Уникальный вклад</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Claude</td><td>Максимальный охват российского рынка (14 компаний). Временная карта &laquo;окна пика&raquo;. Модель окупаемости</td></tr>
+              <tr><td>ChatGPT</td><td>Юридический контур ПДн (реферальная ссылка). &laquo;Реферальная заразность&raquo; (+31&ndash;57%). Технологический стек</td></tr>
+              <tr><td>Perplexity</td><td>Кейсы Casper (7x ROI), Warby Parker (90% рекомендации). Количественные бенчмарки. Одностороннее > двустороннего</td></tr>
+              <tr><td>Kimi</td><td>LEGO Insiders, MADE Unboxed. Физические сертификаты при сервис-визите. Бюджет 1,5&ndash;3%</td></tr>
+              <tr><td>Gemini</td><td>&laquo;Мебельный аудит&raquo;. Identity Labeling. Стигма MLM. &laquo;Свой мастер&raquo; в российской культуре</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ====== AUTHOR ====== -->
+<section class="author-section" id="author">
+  <div class="author-card">
+    <img class="author-photo" src="https://abdublinn.github.io/peredel-furniture-report/images/author-photo.png" alt="Александр Дублин">
+    <div class="author-name">Александр Дублин</div>
+    <p class="author-bio">Бизнес-аналитик и маркетинг-стратег. Работает на стыке аналитики, маркетинга и теории систем.</p>
+    <div class="author-links">
+      <a href="https://t.me/AleksandrBorisovich73" target="_blank" rel="noopener">Telegram @AleksandrBorisovich73</a>
+      <a href="https://t.me/ab_dublin" target="_blank" rel="noopener">Канал @ab_dublin</a>
+    </div>
+    <p class="author-copyright">&copy; Александр Дублин, 2026</p>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; Александр Дублин, 2026. Все права защищены.</p>
+    <p>Аналитическое исследование &middot; Март 2026</p>
+    <p style="margin-top:0.75rem; font-size:0.8rem; color:#475569;">Методология: синтез 5 независимых ИИ-исследований (Claude, ChatGPT, Perplexity, Kimi, Gemini) с перекрёстной верификацией данных</p>
+  </div>
+</footer>
+
+<!-- ====== BACK TO TOP ====== -->
+<button class="back-to-top" id="backToTop" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+// Sticky nav visibility
+const nav = document.getElementById('stickyNav');
+const hero = document.querySelector('.hero');
+const backBtn = document.getElementById('backToTop');
+
+function onScroll() {
+  const scrollY = window.scrollY;
+  const heroBottom = hero.offsetTop + hero.offsetHeight;
+
+  if (scrollY > heroBottom - 60) {
+    nav.classList.add('visible');
+  } else {
+    nav.classList.remove('visible');
+  }
+
+  if (scrollY > 500) {
+    backBtn.classList.add('visible');
+  } else {
+    backBtn.classList.remove('visible');
+  }
+
+  // Active nav link
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = nav.querySelectorAll('a');
+  let current = '';
+
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (scrollY >= top) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+</script>
+
+</body>
+</html>
