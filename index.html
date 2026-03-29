@@ -109,46 +109,87 @@ img { max-width: 100%; height: auto; }
   color: #fbbf24;
 }
 
-/* ── STICKY NAV ── */
-.sticky-nav {
-  position: sticky;
+/* ── SIDE NAV ── */
+.side-nav {
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
+  width: 220px;
+  height: 100vh;
   background: #0f172a;
-  border-bottom: 1px solid rgba(245,158,11,0.15);
-  transform: translateY(-100%);
+  border-right: 1px solid rgba(245,158,11,0.12);
+  z-index: 100;
+  padding: 1.5rem 0;
+  overflow-y: auto;
+  transform: translateX(-100%);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  scrollbar-width: thin;
+  scrollbar-color: #1e3a5f #0f172a;
 }
-.sticky-nav.visible {
-  transform: translateY(0);
+.side-nav.visible {
+  transform: translateX(0);
   opacity: 1;
 }
-.sticky-nav-inner {
-  max-width: 1000px;
-  margin: 0 auto;
+.side-nav-title {
+  color: #f59e0b;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0 1.2rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 0.5rem;
+}
+.side-nav a {
+  display: block;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.55rem 1.2rem;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  transition: all 0.2s;
+  line-height: 1.4;
+}
+.side-nav a:hover {
+  color: #cbd5e1;
+  background: rgba(255,255,255,0.03);
+}
+.side-nav a.active {
+  color: #f59e0b;
+  border-left-color: #f59e0b;
+  background: rgba(245,158,11,0.06);
+}
+/* Сдвиг контента когда nav видна */
+body.nav-open .page-content {
+  margin-left: 220px;
+}
+.page-content {
+  transition: margin-left 0.3s ease;
+}
+/* Кнопка-гамбургер */
+.nav-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #0f172a;
+  border: 1px solid rgba(245,158,11,0.3);
+  color: #f59e0b;
+  font-size: 1.2rem;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
-.sticky-nav-inner::-webkit-scrollbar { display: none; }
-.sticky-nav a {
-  color: #94a3b8;
-  font-size: 0.82rem;
-  font-weight: 500;
-  padding: 0.9rem 1rem;
-  white-space: nowrap;
-  transition: color 0.2s, border-bottom-color 0.2s;
-  border-bottom: 2px solid transparent;
-  text-decoration: none;
-}
-.sticky-nav a:hover, .sticky-nav a.active {
-  color: #f59e0b;
-  border-bottom-color: #f59e0b;
+.nav-toggle.visible {
+  opacity: 1;
 }
 
 /* ── SECTIONS ── */
@@ -624,7 +665,8 @@ footer p { margin-bottom: 0.5rem; }
 
 /* ── PRINT ── */
 @media print {
-  .sticky-nav, .back-to-top { display: none !important; }
+  .side-nav, .nav-toggle, .back-to-top { display: none !important; }
+  body.nav-open .page-content { margin-left: 0; }
   .section { padding: 2rem 0; }
   .hero { padding: 3rem 1rem; }
   body { font-size: 11pt; }
@@ -637,7 +679,9 @@ footer p { margin-bottom: 0.5rem; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
   .stat-number { font-size: 1.5rem; }
   .card { padding: 1.3rem; }
-  .sticky-nav a { padding: 0.7rem 0.75rem; font-size: 0.75rem; }
+  .side-nav { width: 200px; }
+  body.nav-open .page-content { margin-left: 0; }
+  .side-nav.visible { box-shadow: 4px 0 20px rgba(0,0,0,0.5); }
   .author-card { padding: 1.5rem; }
   .cta-inner { flex-direction: column; align-items: center; text-align: center; }
   .cta-left { width: auto; }
@@ -666,22 +710,27 @@ footer p { margin-bottom: 0.5rem; }
   </div>
 </section>
 
-<!-- ====== STICKY NAV ====== -->
-<nav class="sticky-nav" id="stickyNav">
-  <div class="sticky-nav-inner">
-    <a href="#preface">Предисловие</a>
-    <a href="#about-author">Об авторе</a>
-    <a href="#section-1">I. Рынок</a>
-    <a href="#section-2">II. Аналоги</a>
-    <a href="#section-3">III. Смежные</a>
-    <a href="#section-4">IV. Провалы</a>
-    <a href="#section-5">V. Наука</a>
-    <a href="#section-6">VI. Бренды</a>
-    <a href="#section-7">VII. Консенсус</a>
-    <a href="#section-8">VIII. Оценка</a>
-    <a href="#appendices">Приложения</a>
-  </div>
+<!-- ====== NAV TOGGLE ====== -->
+<button class="nav-toggle" id="navToggle" aria-label="Меню">&#9776;</button>
+
+<!-- ====== SIDE NAV ====== -->
+<nav class="side-nav" id="sideNav">
+  <div class="side-nav-title">Содержание</div>
+  <a href="#preface">Предисловие</a>
+  <a href="#about-author">Об авторе</a>
+  <a href="#section-1">I. Ваш рынок</a>
+  <a href="#section-2">II. Аналоги</a>
+  <a href="#section-3">III. Смежные категории</a>
+  <a href="#section-4">IV. Провалы</a>
+  <a href="#section-5">V. Наука</a>
+  <a href="#section-6">VI. Крупные бренды</a>
+  <a href="#section-7">VII. Консенсус</a>
+  <a href="#section-8">VIII. Применимость</a>
+  <a href="#appendices">Приложения</a>
 </nav>
+
+<!-- ====== PAGE CONTENT WRAPPER ====== -->
+<div class="page-content" id="pageContent">
 
 <!-- ====== PREFACE ====== -->
 <section class="section section-white" id="preface">
@@ -1304,22 +1353,46 @@ footer p { margin-bottom: 0.5rem; }
 </footer>
 
 <!-- ====== BACK TO TOP ====== -->
+</div><!-- /page-content -->
+
 <button class="back-to-top" id="backToTop" aria-label="Наверх" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
 
 <script>
-// Sticky nav visibility
-const nav = document.getElementById('stickyNav');
+// Side nav
+const nav = document.getElementById('sideNav');
+const navToggle = document.getElementById('navToggle');
 const hero = document.querySelector('.hero');
 const backBtn = document.getElementById('backToTop');
+const isDesktop = () => window.innerWidth > 768;
+
+navToggle.addEventListener('click', () => {
+  const open = nav.classList.toggle('visible');
+  if (isDesktop()) document.body.classList.toggle('nav-open', open);
+});
+
+// Клик по ссылке на мобильном закрывает меню
+nav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    if (!isDesktop()) {
+      nav.classList.remove('visible');
+    }
+  });
+});
 
 function onScroll() {
   const scrollY = window.scrollY;
   const heroBottom = hero.offsetTop + hero.offsetHeight;
 
   if (scrollY > heroBottom - 60) {
-    nav.classList.add('visible');
+    navToggle.classList.add('visible');
+    if (isDesktop() && !nav.classList.contains('visible')) {
+      nav.classList.add('visible');
+      document.body.classList.add('nav-open');
+    }
   } else {
+    navToggle.classList.remove('visible');
     nav.classList.remove('visible');
+    document.body.classList.remove('nav-open');
   }
 
   if (scrollY > 500) {
